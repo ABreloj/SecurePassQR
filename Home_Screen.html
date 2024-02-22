@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <title>SecurePassQR</title>
+
+    <style>
+        body {
+            border: 0%;
+            background-color: rgba(101, 201, 124, 0.863);
+            font-size: 22px;
+            font-family: "Lobster";
+        }
+
+        
+
+        .portada {
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 420px;
+            height: 290px;
+        }
+
+        .regristo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .campos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 330px;
+            height: 400px;
+            background-color: rgb(121, 38, 199);
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 10%;
+            box-shadow: 8px 8px 8px 8px gray;
+        }
+
+        input {
+            width: 60%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2.5px solid rgb(0, 0, 0);
+            font-size: 16px;
+        }
+
+        .piePagina {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            font-size: 21px;
+        }
+
+        .TU {
+            width: 140px;
+            height: 110px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="portada">
+        <img src="/imagenes/logoqr-removebg-preview.png" alt="" class="logo">
+    </div>
+
+    <div class="regristo">
+        <div class="campos">
+            <p>Usuario</p>
+            <input type="text" placeholder="Usuario">
+            <p>Contraseña</p>
+            <input type="text" placeholder="Contraseña">
+        </div>
+    </div>
+
+    <div class="piePagina">
+        <img src="/imagenes/sin letras.png" alt="" class="TU">
+        <br>
+        <p>Tecnología universal</p>
+        <p>Copyright 2024©</p>
+    </div>
+    
+</body>
+</html>
