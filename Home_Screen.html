@@ -17,8 +17,6 @@
             font-family: "Lobster";
         }
 
-        
-
         .portada {
             display: flex;
             justify-content: center;
@@ -46,12 +44,36 @@
             box-shadow: 8px 8px 8px 8px gray;
         }
 
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
         input {
             width: 60%;
             padding: 10px;
             box-sizing: border-box;
             border: 2.5px solid rgb(0, 0, 0);
             font-size: 16px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+
+        .iniciar {
+            color: black;
+            width: 140px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 17px;
+            background-color: rgba(101, 201, 124, 0.863);
+            border: 2.5px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            font-family: "Lobster";
+            margin-top: 12%;
         }
 
         .piePagina {
@@ -77,10 +99,14 @@
 
     <div class="regristo">
         <div class="campos">
-            <p>Usuario</p>
-            <input type="text" placeholder="Usuario">
-            <p>Contraseña</p>
-            <input type="text" placeholder="Contraseña">
+            <form method="POST" novalidate>
+                <p>Usuario</p>
+                <input type="text" placeholder="Usuario">
+                <p>Contraseña</p>
+                <input type="password" placeholder="Contraseña">
+                <br>
+                <button class="iniciar" type="submit">Iniciar Sesión</button>
+            </form>
         </div>
     </div>
 
