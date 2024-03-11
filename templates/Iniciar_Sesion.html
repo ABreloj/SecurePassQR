@@ -94,12 +94,12 @@
 <body>
 
     <div class="portada">
-        <img src="/imagenes/logoqr-removebg-preview.png" alt="" class="logo">
+        <img src="/static/logoqr-removebg-preview.png" alt="" class="logo">
     </div>
 
     <div class="regristo">
         <div class="campos">
-            <form method="POST" action="{% url 'iniciar_sesion' %}" novalidate>
+            <form method="POST" action="{{ url_for('iniciar_sesion') }}" novalidate>
                 <p>Usuario</p>
                 <input type="text" name="usuario" placeholder="Usuario">
                 <p>Contraseña</p>
@@ -111,7 +111,7 @@
     </div>
 
     <div class="piePagina">
-        <img src="/imagenes/sin letras.png" alt="" class="TU">
+        <img src="/static/sin letras.png" alt="" class="TU">
         <br>
         <p>Tecnología universal</p>
         <p>Copyright 2024©</p>
