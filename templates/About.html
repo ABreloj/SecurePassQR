@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+        margin: 0%;
+        background-color: rgba(101, 201, 124, 0.863);
+        font-size: 22px;
+        text-align: center;
+        
+    }
+
+    .cuerpo{
+        display: flex;
+        justify-content: center;
+        margin: 1%;
+        font-family: "Lobster";
+    }
+
+    .legado{
+        
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 1330px;
+            height: 1396px;
+            background-color: rgb(121, 38, 199);
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 10%;
+            box-shadow: 8px 8px 8px 8px gray;
+    }
+
+    .TU{
+        width: 140px;
+            height: 110px;
+            
+    }
+
+    .salir{
+    color: black;
+    cursor: pointer;
+    font-size: 23px;
+    background-color: rgba(101, 201, 124, 0.863);
+    border: 2.5px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    font-family: "Lobster";
+    margin-top: 20px;
+    display: inline-block; 
+    text-decoration: none; 
+    }
+    
+    </style>
+    
+</head>
+<body>
+
+    <div class="cuerpo">
+        <div class="legado">
+            <img src="/static/sin letras.png" alt="" class="TU">
+            <h1>Tecnología universal</h1>
+            <p>T.U. tecnología Universal es una pequeña empresa dedicada al desarrollo de aplicaciones web, dispositivos IoT y aplicaciones moviles</p>
+            <div class="proyecto">
+                <p>SecurePassQR es un proyecto para controlar el acceso de entrada hacia la Universidad Tecnologíca de Tlaxcala y evitar el acceso de gente no perteneciente a la institución.</p>
+                <br>
+                <p>Todo esto gracias a 3 principales sistemas:</p>
+                
+                    <li>Aplicación móvil</li>
+                    <li>Dispositivo IoT</li>
+                    <li>Aplicación Web</li>
+                 
+
+                <h4>Aplicación móvil</h4>
+                <P>La aplicación movil tiene la funcionalidad de que cada alumno cuente con una credencial virtual, con su códigoQR que le servira para dar acceso a las instalaciones de la universidad, siendo programada con el lenguaje de Dart y la paqueteria de Flutter</P>
+                <br>
+                <br>
+                <h4>Dispositivo IoT</h4>
+                <p>El dispositivo de IoT es un pequeño escaner en la entrada de la institución donde cada miembro del alumando, en este cada uno podrá escanear su código QR al momento llegar para poder permitirle el acceso a la misma. Este útil dispositvo esta creado con un escaner "QR Code Scanning Module", una pantalla LCD, jumpers y una placa ESP32 </p>
+                <br>
+                <br>
+                <h4>Aplicación Web</h4>
+                <P>La aplicación web es una herramienta que ayudara a los administradores del proyecto, que les servira para poder ver los datos de los estudiantes, asi como agregar a nuevos o eliminar a aquellos que por cualquier motivo dejen de pertenecer a la institución</P>
+                <br>
+                <br>
+                <p>Muchas gracias por confiar en Tecnología Universal</p>
+            </div>
+            <a href="{{ url_for('iniciar_sesion') }}" class="salir">Regresar</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

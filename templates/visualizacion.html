@@ -24,6 +24,7 @@
             align-items: center;
             justify-content: space-between; 
             padding: 10px;
+           
         }
 
         .logo {
@@ -57,35 +58,43 @@
         }
 
         .tabla {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 17px;
-        }
+    border-collapse: collapse;
+    width: 80%; /* Cambiado al 80% del ancho */
+    margin: 20px auto;
+    font-size: 17px;
+    overflow-x: auto; /* Agregado desplazamiento horizontal */
+}
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 2px solid black;
-        }
+th, td {
+    padding: 12px; /* Aumentado el relleno */
+    text-align: left;
+    border: 2px solid black;
+}
 
-        th {
-            background-color: rgb(173, 93, 226);
-            color: #333;
-        }
+th {
+    background-color: rgb(173, 93, 226);
+    color: #333;
+}
 
-        .registrar {
-            color: black;
-            cursor: pointer;
-            font-size: 17px;
-            background-color: rgb(121, 38, 199);
-            border: 2.5px solid rgb(0, 0, 0);
-            border-radius: 15px;
-            transition: background-color 0.3s;
-            font-family: "Lobster";
-            margin-top: 20px; 
-        }
+/* Nuevo estilo para las celdas en las filas impares */
+tr:nth-child(odd) {
+    background-color: rgba(173, 93, 226, 0.1);
+}
+
+/* Ajustes para la etiqueta "Registrar Alumno" */
+.registrar {
+    color: black;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: rgb(121, 38, 199);
+    border: 2.5px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    font-family: "Lobster";
+    margin-top: 20px;
+    display: inline-block; 
+    text-decoration: none; 
+}
     </style>
 </head>
 
@@ -94,7 +103,7 @@
     <header class="encabezado">
         <img src="/static/logoqr-removebg-preview.png" alt="" class="logo">
         <p class="titulo">Lista de estudiantes</p>
-        <button class="salir" type="submit" >Cerrar Sesión</button>
+        <a href="{{ url_for('iniciar_sesion') }}" class="salir">Cerrar Sesión</a>
     </header>
 
     <div class="contenido">
@@ -104,7 +113,7 @@
                 <th>Nombre(s)</th>
                 <th>Apellidos</th>
                 <th>Carrera</th>
-                <th>Correo</th>
+                <th>Usuario</th>
                 <th>Contraseña</th>
             </tr>
             {% for estudiante in datos_estudiantes %}
@@ -119,9 +128,7 @@
             {% endfor %}
         </table>
         
-        
-        
-        <button class="registrar" type="submit">Registrar Alumno</button>
+        <a href="{{ url_for('registrar') }}" class="registrar">Registrar Alumno</a>
     </div>
 
 </body>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Pagina Principal</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgba(101, 201, 124, 0.863);
+            font-size: 29px;
+            font-family: "Lobster";
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .encabezado {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border: 5px solid rgb(0, 0, 0);
+            background-color: rgb(121, 38, 199);
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 10px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 100px;
+        }
+
+        .titulo {
+            text-align: center;
+            flex-grow: 1;
+            margin-right: 0%;
+        }
+
+        .salir {
+            color: black;
+            cursor: pointer;
+            font-size: 17px;
+            background-color: rgb(252, 4, 4);
+            border: 2.5px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            font-family: "Lobster";
+            margin-right: 2%;
+        }
+
+        .registrar-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 300px;
+            margin-top: 8%;
+        }
+
+        .registrar-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .registrar-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .registrar-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(121, 38, 199);
+            color: black;
+            cursor: pointer;
+            border: 2.5px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            font-family: "Lobster";
+            font-size: 20px;
+        }
+
+        .volver{
+            color: black;
+            cursor: pointer;
+            font-size: 24px;
+            background-color: rgb(121, 38, 199);
+            border: 2.5px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            font-family: "Lobster";
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <img src="/static/logoqr-removebg-preview.png" alt="" class="logo">
+        <p class="titulo">Agregar alumno</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="salir">Cerrar Sesión</a>
+    </header>
+
+    <form method="post" class="registrar-form">
+        <label for="matricula">Matricula:</label>
+        <input type="text" name="matricula" required>
+
+        <label for="nombre">Nombre(s):</label>
+        <input type="text" name="nombre" required>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" required>
+
+        <label for="carrera">Carrera:</label>
+        <input type="text" name="carrera" required>
+
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" required>
+
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" name="contraseña" required>
+
+        <button type="submit">Registrar Alumno</button>
+    </form>
+
+    <a href="{{ url_for('visualizar') }}" class="volver">Regresar</a>
+
+</body>
+</html>
