@@ -115,6 +115,8 @@ tr:nth-child(odd) {
                 <th>Carrera</th>
                 <th>Usuario</th>
                 <th>Contraseña</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
             </tr>
             {% for estudiante in datos_estudiantes %}
             <tr>
@@ -124,6 +126,8 @@ tr:nth-child(odd) {
                 <td>{{ estudiante.Carrera }}</td>
                 <td>{{ estudiante.Usuario }}</td>
                 <td>{{ estudiante.Contraseña }}</td>
+                <td>{{ estudiante.Entrada }}</td>
+                <td>{{ estudiante.Salida }}</td>
             </tr>   
             {% endfor %}
         </table>
