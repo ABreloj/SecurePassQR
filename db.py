@@ -20,7 +20,7 @@ def crear_usuarios():
             'Apellidos': 'Montiel Sosa',
             'Carrera': 'TIADSM',
             'Usuario': 'SantiagoIDGS030',
-            'Contraseña': 'TIADSM030',
+            'Password': 'TIADSM030',  # Cambio aquí
             'Salida': '',
             'Entrada': '',
         },
@@ -30,7 +30,7 @@ def crear_usuarios():
             'Apellidos': 'Hernández Sánchez',
             'Carrera': 'TIADSM',
             'Usuario': 'JuanIDGS009',
-            'Contraseña': 'TIADSM009',
+            'Password': 'TIADSM009',  # Cambio aquí
             'Salida': '',
             'Entrada': '',
         },
@@ -40,7 +40,7 @@ def crear_usuarios():
             'Apellidos': 'López Sandoval',
             'Carrera': 'TIADSM',
             'Usuario': 'AndoniIDGS059',
-            'Contraseña': 'TIADSM059',
+            'Password': 'TIADSM059',  # Cambio aquí
             'Salida': '',
             'Entrada': '',
         },
@@ -50,7 +50,7 @@ def crear_usuarios():
             'Apellidos': 'Aguirre Palestina',
             'Carrera': 'TIADSM',
             'Usuario': 'AlvaroIDGS071',
-            'Contraseña': 'TIADSM071',
+            'Password': 'TIADSM071',  # Cambio aquí
             'Salida': '',
             'Entrada': '',
         },
@@ -69,11 +69,11 @@ def crear_usuarios():
 def iniciar_sesion():
     if request.method == 'POST':
         usuario = request.form['usuario']
-        contrasena = request.form['contrasena']
+        password = request.form['Password']  # Cambio aquí
 
         # Consultar Firebase para verificar el usuario y la contraseña
         usuarios_ref = db.collection('usuarios')
-        query = usuarios_ref.where('Usuario', '==', usuario).where('Contraseña', '==', contrasena).limit(1)
+        query = usuarios_ref.where('Usuario', '==', usuario).where('password', '==', password)  # Cambio aquí
         results = query.get()
 
         if len(results) == 0:
@@ -88,6 +88,7 @@ def iniciar_sesion():
 
     return render_template('iniciar_sesion.html')
 
+
 @app.route('/visualizar')
 def visualizar():
     if 'user' not in session:
@@ -100,6 +101,10 @@ def visualizar():
     datos_estudiantes = [doc.to_dict() for doc in alumnos_ref.get()]
 
     return render_template('visualizacion.html', usuario=usuario_actual, datos_estudiantes=datos_estudiantes)
+
+@app.route('/about')  # Definir la ruta para la página "Acerca de nosotros"
+def about():
+    return render_template('about.html')  # Asegúrate de tener un archivo about.html en tu carpeta de plantillas
 
 if __name__ == "__main__":
     app.run(debug=True)
