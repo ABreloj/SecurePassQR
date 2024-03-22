@@ -1,83 +1,39 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import firebase_admin
+import hashlib
+
 from firebase_admin import credentials, firestore
 
 app = Flask(__name__)
 app.secret_key = 'tu_clave_secreta_aqui'
 
 # Inicializar la aplicación de Firebase
-cred = credentials.Certificate('passqr-9141c-firebase-adminsdk-ahwbs-2c35df3e92.json')
+cred = credentials.Certificate('key.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-@app.route('/crear_usuarios', methods=['GET'])
-def crear_usuarios():
-    # Lista de usuarios con sus datos
-    usuarios_nuevos = [
-        {
-            'Matricula': '2022IDGS030',
-            'Nombre': 'Santiago',
-            'Apellidos': 'Montiel Sosa',
-            'Carrera': 'TIADSM',
-            'Usuario': 'SantiagoIDGS030',
-            'Password': 'TIADSM030',  # Cambio aquí
-            'Salida': '',
-            'Entrada': '',
-        },
-        {
-            'Matricula': '2022IDGS009',
-            'Nombre': 'Juan Manuel',
-            'Apellidos': 'Hernández Sánchez',
-            'Carrera': 'TIADSM',
-            'Usuario': 'JuanIDGS009',
-            'Password': 'TIADSM009',  # Cambio aquí
-            'Salida': '',
-            'Entrada': '',
-        },
-        {
-            'Matricula': '20221DGS059',
-            'Nombre': 'Andoni Agustín',
-            'Apellidos': 'López Sandoval',
-            'Carrera': 'TIADSM',
-            'Usuario': 'AndoniIDGS059',
-            'Password': 'TIADSM059',  # Cambio aquí
-            'Salida': '',
-            'Entrada': '',
-        },
-        {
-            'Matricula': '2022IDGS071',
-            'Nombre': 'Alvaro',
-            'Apellidos': 'Aguirre Palestina',
-            'Carrera': 'TIADSM',
-            'Usuario': 'AlvaroIDGS071',
-            'Password': 'TIADSM071',  # Cambio aquí
-            'Salida': '',
-            'Entrada': '',
-        },
-    ]
-
-    # Obtener una referencia a la colección 'usuarios' en Firestore
-    usuarios_ref = db.collection('usuarios')
-
-    # Agregar cada usuario a la colección 'usuarios'
-    for usuario in usuarios_nuevos:
-        usuarios_ref.add(usuario)
-
-    return 'Usuarios creados correctamente'
 
 @app.route('/iniciar_sesion', methods=['GET', 'POST'])
 def iniciar_sesion():
     if request.method == 'POST':
         usuario = request.form['usuario']
-        password = request.form['Password']  # Cambio aquí
+        password = request.form['Password']
 
-        # Consultar Firebase para verificar el usuario y la contraseña
+        # Hashear la contraseña ingresada por el usuario
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+        # Imprimir los valores para verificar
+        print('Usuario ingresado:', usuario)
+        print('Contraseña ingresada:', password)
+        print('Contraseña hasheada:', hashed_password)
+
         usuarios_ref = db.collection('usuarios')
-        query = usuarios_ref.where('Usuario', '==', usuario).where('password', '==', password)  # Cambio aquí
+        query = usuarios_ref.where('Usuario', '==', usuario).where('Password', '==', hashed_password)
         results = query.get()
 
+        print('Resultados de la consulta:', results)  # Agregar impresión de resultados
+
         if len(results) == 0:
-            # Usuario no registrado o contraseña incorrecta
             mensaje = 'Usuario no registrado o contraseña incorrecta'
             return render_template('iniciar_sesion.html', mensaje=mensaje)
 
@@ -102,9 +58,11 @@ def visualizar():
 
     return render_template('visualizacion.html', usuario=usuario_actual, datos_estudiantes=datos_estudiantes)
 
+
 @app.route('/about')  # Definir la ruta para la página "Acerca de nosotros"
 def about():
     return render_template('about.html')  # Asegúrate de tener un archivo about.html en tu carpeta de plantillas
+
 
 if __name__ == "__main__":
     app.run(debug=True)

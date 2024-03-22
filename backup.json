@@ -1,0 +1,19 @@
+{
+  "__collections__": 
+  {
+    "Alumnos":{    
+    "65ea4daef83f1445f5891029":{
+    "Matricula": "2022IDGS047",
+    "Nombre": "Abraham",
+    "Apellidos": "Perez Quiroz",
+    "Carrera": "TIADSM",
+    "Usuario": "AbrahamIDGS047",
+    "Password": "TIADSM047",
+    "Entrada": "",
+    "Salida": "",
+    "__collections__": {}
+    
+      }
+    }
+  }
+}
