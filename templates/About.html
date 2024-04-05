@@ -29,7 +29,7 @@
             flex-direction: column;
             align-items: center;
             width: 1330px;
-            height: 1396px;
+            height: 2196px;
             background-color: rgb(121, 38, 199);
             border: 5px solid rgb(0, 0, 0);
             border-radius: 10%;
@@ -54,6 +54,10 @@
     margin-top: 20px;
     display: inline-block; 
     text-decoration: none; 
+    }
+
+    a{
+        color: black;
     }
     
     </style>
@@ -80,17 +84,50 @@
                 <P>La aplicación movil tiene la funcionalidad de que cada alumno cuente con una credencial virtual, con su códigoQR que le servira para dar acceso a las instalaciones de la universidad, siendo programada con el lenguaje de Dart y la paqueteria de Flutter</P>
                 <br>
                 <br>
+
                 <h4>Dispositivo IoT</h4>
-                <p>El dispositivo de IoT es un pequeño escaner en la entrada de la institución donde cada miembro del alumando, en este cada uno podrá escanear su código QR al momento llegar para poder permitirle el acceso a la misma. Este útil dispositvo esta creado con un escaner "QR Code Scanning Module", una pantalla LCD, jumpers y una placa ESP32 </p>
+                <p>El dispositivo de IoT es un pequeño escaner en la entrada de la institución donde cada miembro del alumando podrá escanear su código QR al momento llegar para poder permitirle el acceso a la misma. Este útil dispositvo esta creado con un escaner "QR Code Scanning Module", una pantalla LCD, jumpers y una placa ESP32 </p>
                 <br>
                 <br>
+
                 <h4>Aplicación Web</h4>
-                <P>La aplicación web es una herramienta que ayudara a los administradores del proyecto, que les servira para poder ver los datos de los estudiantes, asi como agregar a nuevos o eliminar a aquellos que por cualquier motivo dejen de pertenecer a la institución</P>
+                <P>La aplicación web es una herramienta que ayudara para descargar la app y las intrucciones para usarla</P>
+                <br>
+                <br>
+
+                <h4>Instrucciones para usar la aplicacion web</h4>
+                <br>
+
+                <li>Descargar la app</li>
+                    <a href="https://drive.google.com/drive/folders/1yQH5Vb4Oj9wngT-Rc6SsnXs-o5r9ey7c?usp=drive_link">Link de descargar</a>
+                <br>
+                <br>
+
+
+                <li>Iniciar sesión</li>
+                    <p>Una vez abras la aplicacion puedes ingresa tu correo y contraseña en los campos correspondientes</p>
+                <br>
+                <br>
+
+
+                <li>Interfaz y menu</li>
+                    <p>La pantalla inicial de la aplicacion mostrara tus datos basicos, en la parte izquierda encontraras un pequeño menu con otros apartados que te pueden servir</p>
+                <br>
+                <br>
+
+
+                <li>Codigo QR</li>
+                    <p>En la pagina principal debajo de tus datos se encontrara tu codigo QR</p>
+                <br>
+                <br>
+
+
+                <li>Escanear Codigo QR</li>
+                    <p>Deberas colocar la pantalla de tu celular enfrente del escaner para que pueda leerlo, en la pantalla del dispositivo se mostrara un mensaje de bienvenida</p>
                 <br>
                 <br>
                 <p>Muchas gracias por confiar en Tecnología Universal</p>
             </div>
-            <a href="{{ url_for('iniciar_sesion') }}" class="salir">Regresar</a>
         </div>
         
     </div>
